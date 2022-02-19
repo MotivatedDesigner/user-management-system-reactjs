@@ -1,12 +1,10 @@
-import { useState } from 'react'
+import Container from "react-bootstrap/Container"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
+    <Container className="bg-primary">
       <h1>Clean Project</h1>
-    </div>
+    </Container>
   )
 }
 
