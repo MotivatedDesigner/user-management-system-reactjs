@@ -6,7 +6,6 @@ export default function MyTable({data}) {
 
   return (
     <div>
-      <Button className='my-3' variant="light">Add New User</Button>
       <Table striped hover variant="dark">
         <thead>
           <tr>

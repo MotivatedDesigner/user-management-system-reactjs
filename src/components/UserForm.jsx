@@ -1,49 +1,58 @@
 import { useState } from "react"
 
 export const UserForm = ({
-  action,
-  onAction,
-  onClose,
+  onSubmit,
+  onCancel,
   initialData = null
 }) => {
 
-  const [formData, setFormData] = useState(initialData)
+  const [firstName, setFirstName] = useState(initialData?.firstName ?? '')
+  const [lastName, setLastName] = useState(initialData?.lastName ?? '')
+  const [username, setUsername] = useState(initialData?.userName ?? '')
 
   return (
     <form 
-      onSubmit={(event) => onAction(event, action,formData)} 
+      onSubmit={ (event) => onSubmit(event, { firstName, lastName, username }) } 
       className="w-50 pt-5 mx-auto"
     >
+      {/* firstName */}
       <div className="form-group">
-        <label htmlFor="email">Email address</label>
+        <label htmlFor="firstName">FirstName</label>
         <input
-          type="email"
           className="form-control"
-          id="email"
-          aria-describedby="emailHelp"
-        />
-        <small id="emailHelp" className="form-text text-muted">
-          We'll never share your email with anyone else.
-        </small>
-      </div>
-      <div className="form-group">
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          className="form-control"
-          id="password"
+          placeholder="Please Enter your FirstName"
+          id="firstName"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
         />
       </div>
-      <div className="form-group form-check">
-        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-        <label className="form-check-label" htmlFor="exampleCheck1">
-          Check me out
-        </label>
+      {/* lastName */}
+      <div className="form-group">
+        <label htmlFor="lastName">Last Name</label>
+        <input
+          className="form-control"
+          placeholder="Please Enter your LastName"
+          id="lastName"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
       </div>
+      {/* username */}
+      <div className="form-group">
+        <label htmlFor="username">Username</label>
+        <input
+          className="form-control"
+          placeholder="Please Enter your Username"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+      {/* actions */}
       <button type="submit" className="btn btn-primary">
         Submit
       </button>
-      <button type="button" className="btn btn-primary" onClick={onClose}>
+      <button type="button" className="btn btn-primary" onClick={onCancel}>
         Close
       </button>
     </form>
