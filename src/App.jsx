@@ -21,6 +21,10 @@ function App() {
     console.log(formData);
   }
 
+  const addUserHandler = () => {
+    console.log('add user');
+  }
+
   const actionHandler = (action, id) => {
     console.log(action);
     console.log(id);
@@ -29,7 +33,7 @@ function App() {
     <div className="bg-secondary vh-100">
       <div className="container">
         <h1 className="text-center py-5">User Management System</h1>
-        <button className='btn btn-light mb-2'>Add New User</button>
+        <button className='btn btn-light mb-2' onClick={addUserHandler}>Add New User</button>
         <MyTable data={users} onAction={actionHandler}/>
         {/* <UserForm action="edit" onSubmit={UserFormHandler} onCancel={closeModalHandler} initialData={users[0]}/> */}
       </div>
