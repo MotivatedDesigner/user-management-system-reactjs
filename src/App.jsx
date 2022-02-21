@@ -19,10 +19,11 @@ function App() {
     event.preventDefault()
     console.log(formData);
   }
-  const mama = <p>hey there</p>
   return (
     <div className="bg-secondary vh-100">
       <div className="container">
+        <h1 className="text-center py-5">User Management System</h1>
+        <button className='btn btn-light'>Add New User</button>
         {/* <UserForm action="edit" onSubmit={UserFormHandler} onCancel={closeModalHandler} initialData={users[0]}/> */}
       </div>
     </div>
