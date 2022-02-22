@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Modal } from "./components/Modal";
 import { MyTable } from "./components/MyTable";
 import { UserForm } from "./components/UserForm"
 
@@ -13,6 +14,7 @@ const USERS_DUMMY = [ { id: "123456789", createdDate: "2021-01-06T00:00:00.000Z"
 function App() {
 
   const [users, setUsers] = useState(USERS_DUMMY)
+  const [showModal, setShowModal] = useState(false)
 
   const closeModalHandler = () => console.log('omm');
 
@@ -23,6 +25,7 @@ function App() {
 
   const addUserHandler = () => {
     console.log('add user');
+    setShowModal(true)
   }
 
   const actionHandler = (action, id) => {
@@ -34,7 +37,8 @@ function App() {
       <div className="container">
         <h1 className="text-center py-5">User Management System</h1>
         <button className='btn btn-light mb-2' onClick={addUserHandler}>Add New User</button>
-        <MyTable data={users} onAction={actionHandler}/>
+        {/* <MyTable data={users} onAction={actionHandler}/> */}
+        <Modal show={showModal}/>
         {/* <UserForm action="edit" onSubmit={UserFormHandler} onCancel={closeModalHandler} initialData={users[0]}/> */}
       </div>
     </div>
