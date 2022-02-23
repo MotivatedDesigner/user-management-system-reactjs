@@ -1,20 +1,62 @@
-.my-modal{
+.modal{
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1055;
+  z-index: 100;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  overflow-x: hidden;
-  overflow-y: auto;
-  outline: 0;
   visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s ,opacity .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: visibility 0s;
 }
 
-.my-modal.show{
+.modal.show{
   visibility: visible;
+}
+
+.modal-dialog{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 48px 0;
+  transform: translateY(-100px);
+  opacity: 0;
+  transition: 
+    opacity .15s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.modal.show .modal-dialog{
+  transform: translateY(0);
   opacity: 1;
+}
+.modal-content{
+  background-color: rgb(50, 49, 51);
+  width: 500px;
+}
+.modal-content>div{
+  padding: 16px;
+}
+.modal-header{
+  border-bottom: 1px solid #dee2e6;
+  border-top-left-radius: calc(.3rem - 1px);
+  border-top-right-radius: calc(.3rem - 1px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal-header svg{
+  height: 22px;
+  cursor: pointer;
+}
+.modal-title{
+  line-height: 1.5;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+}
+.modal-footer{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
 }
