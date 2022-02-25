@@ -25,7 +25,8 @@ function App() {
 
   const addUserHandler = () => {
     console.log('add user');
-    setShowModal(true)
+    return <h1>hhhh</h1>
+    // setShowModal(!showModal)
   }
 
   const actionHandler = (action, id) => {
@@ -38,7 +39,7 @@ function App() {
         <h1 className="text-center py-5">User Management System</h1>
         <button className='btn btn-primary' onClick={addUserHandler}>Add New User</button>
         {/* <MyTable data={users} onAction={actionHandler}/> */}
-        <Modal show={showModal}/>
+        {/* <Modal show={showModal}/> */}
         {/* <UserForm action="edit" onSubmit={UserFormHandler} onCancel={closeModalHandler} initialData={users[0]}/> */}
       </div>
     </div>

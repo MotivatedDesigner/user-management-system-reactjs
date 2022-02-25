@@ -1,7 +1,7 @@
 import './modal.css'
 export const Modal = ({show}) => {
   return (
-    <div className={`modal ${show ? "show" : ""}`} tabIndex="-1">
+    <div className={`modal ${show && "show"}`} tabIndex="-1">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
