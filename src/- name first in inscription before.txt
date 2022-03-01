@@ -1,0 +1,3 @@
+- name first in inscription before
+- inscription -> validation
+- re-orientation

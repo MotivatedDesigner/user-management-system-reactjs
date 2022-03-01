@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Modal } from "./components/Modal";
 import { MyTable } from "./components/MyTable";
+import { Test } from "./components/Test";
 import { UserForm } from "./components/UserForm"
 
 const USERS_DUMMY = [ { id: "123456789", createdDate: "2021-01-06T00:00:00.000Z", status: "En validation", firstName: "Mohamed", lastName: "Taha", userName: "mtaha", registrationNumber: "2584", },
@@ -11,6 +12,7 @@ const USERS_DUMMY = [ { id: "123456789", createdDate: "2021-01-06T00:00:00.000Z"
 
 } ]
 
+const data = ['o', 'm', 'm', 'o']
 function App() {
 
   const [users, setUsers] = useState(USERS_DUMMY)
@@ -18,17 +20,10 @@ function App() {
 
   const closeModalHandler = () => console.log('omm');
 
-  const UserFormHandler = (event, formData) => {
+  const addUserHandler = (event) => {
     event.preventDefault()
-    console.log(formData);
+    setShowModal((prevState)=> !prevState)
   }
-
-  const addUserHandler = () => {
-    console.log('add user');
-    return <h1>hhhh</h1>
-    // setShowModal(!showModal)
-  }
-
   const actionHandler = (action, id) => {
     console.log(action);
     console.log(id);
@@ -36,7 +31,8 @@ function App() {
   return (
     <div className="bg-secondary vh-100">
       <div className="container">
-        <h1 className="text-center py-5">User Management System</h1>
+        <Test data={data}/>
+        {/* <h1 className="text-center py-5">User Management System</h1> */}
         <button className='btn btn-primary' onClick={addUserHandler}>Add New User</button>
         {/* <MyTable data={users} onAction={actionHandler}/> */}
         {/* <Modal show={showModal}/> */}
